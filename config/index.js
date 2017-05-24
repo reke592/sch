@@ -1,4 +1,10 @@
 require("./env");
-var logger = require("../lib/logger");
-logger.prefix.msg = "[info]";
-logger.prefix.err = "[error]"
+const app_config = require("./app");
+
+// exports.configure = function(app) {
+// 	app_config(app);
+// }
+
+module.exports = {
+	configure : app_config
+}

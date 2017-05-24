@@ -10,8 +10,6 @@
   "author": "erric.rapsing@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.15.3",
-    "mongodb": "^2.2.27",
-    "socket.io": "^2.0.1"
+    "lodash": "^4.17.4"
   }
 }
