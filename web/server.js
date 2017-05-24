@@ -1,10 +1,11 @@
 var http = require("http");
 var env = require("../lib/env");
+var log = require("../lib/logger").Logger("debug" == env.get("server/mode"));
+
 
 const start = function(port) {
 	http.createServer(onRequest).listen(port);
-	if("debug" == env.get("server/mode"))
-		console.log("server has started, listening in localhost:8000");
+	log.msg("server has started, listening in localhost:8000");
 }
 
 // must be handled by router
