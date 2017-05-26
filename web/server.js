@@ -1,4 +1,3 @@
-const config = require("../config");
 const env = require("../lib/env");
 const express = require("express");
 const app = express();
@@ -8,14 +7,18 @@ const logger = function(req, res, next) {
 	next();
 }
 
+const start = function(port) {
+	let server_port = port || env.get("server/port");
+	app.listen(server_port);
+	console.log(`server has started, listening on localhost:${server_port}`);
+}
+
+const use = function(config) {
+	config.apply(app);
+}
 
 app.use(logger);
 app.use(express.static(env.get("server/static_dir")));
 
-// overriden by express.static
-// app.get('/', function(req, res) {
-// 	res.send("Hello");
-// });
-
-
-app.listen(env.get("server/port"));
+exports.start = start;
+exports.use = use;
