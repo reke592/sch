@@ -1,11 +1,28 @@
 /*
 * This file contains all the environment variable declaraions.
 */
-const env = require("../lib/env");
+const express = require("express");
 
-const server = env.create("server");
-server.add("db", "smpcs");
-server.add("mode", "debug");
-server.add("port", 8000);
-server.add("static_dir", "public");
-server.lock();												// lock() to avoid future alteration
+const logger = function(req, res, next) {
+	console.log('logging...');
+	next();
+}
+
+exports.apply = function(app) {
+	const env = process.env.NODE_ENV || "development";	
+	
+	// default env
+	app.set("DB", "smpcs");
+	app.set("PORT", 8000);
+	app.set("STATIC_ASSET_URL_PREFIX", "/public");
+	app.set("STATIC_DIR", "public");
+	app.set("LIB_PATH", `${__dirname}/../lib`);
+
+	// development environment
+	if("production" == env) {
+		console.log("enabling production environment...");
+		app.use(logger);
+		// app.use(express.errorHandler());
+	}
+
+}
