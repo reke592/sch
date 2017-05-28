@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-dev": "npm install mongodb nodemon express socket.io -g"
   },
   "author": "erric.rapsing@gmail.com",
   "license": "ISC",
