@@ -2,6 +2,9 @@
 * This file contains all the environment variable declaraions.
 */
 const express = require("express");
+const bodyParser = require("body-parser");
+
+var _settings_cache = {};
 
 const logger = function(req, res, next) {
 	console.log('logging...');
@@ -17,6 +20,8 @@ exports.apply = function(app) {
 	app.set("STATIC_ASSET_URL_PREFIX", "/public");
 	app.set("STATIC_DIR", "public");
 	app.set("LIB_PATH", `${__dirname}/../lib`);
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended : true }));
 
 	// development environment
 	if("production" == env) {
@@ -24,5 +29,4 @@ exports.apply = function(app) {
 		app.use(logger);
 		// app.use(express.errorHandler());
 	}
-
 }

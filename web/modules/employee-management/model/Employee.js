@@ -6,7 +6,7 @@ function Employee(obj) {
 
 const register = function(req, res) {
 	console.log(`register new employee`);
-	console.log(req.params);
+	console.log(req.body);
 	res.send(`registration successful..`);
 }
 

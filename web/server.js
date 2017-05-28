@@ -1,4 +1,5 @@
-const express = require("express");
+var express = require("express");
+
 const app = express();
 
 const start = function(port) {

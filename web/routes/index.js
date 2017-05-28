@@ -1,17 +1,21 @@
-const empRoutes = require("./employee-management");
+var express = require("express");
 
 const routes = [
-	require("./employee-management")
+	require("./main-routes"),
+	require("../modules/employee-management/routes")
 ];
 
 const apply = function(app) {
-	// console.log(app);
-	
+
+	/*
+	* Include all module route configurations in app.
+	*/
 	console.log("configuring routes...");
 	routes.forEach(function(config) {
 		config(app);
 	});
 
 }
+
 
 exports.apply = apply;
