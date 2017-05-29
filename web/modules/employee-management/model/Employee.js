@@ -4,8 +4,10 @@ const validator = require("./schema").Validator("Employee", schema);
 
 const register = function(req, res) {
 	// console.log(`register new employee`);
-	console.log(validator.validate(req.body));
-	res.send(`registration successful..`);
+	if(validator.validate(req.body))
+		res.send(`registration successful!`);
+	else
+		res.send(`registration failed`);
 }
 
 
