@@ -1,11 +1,12 @@
 module.exports = function(app) {
 	
-	let express = require("express");
-	let path = require("path");
-	let Employees = require("./model/Employee");
-	let router = express.Router();
-	let module_name = path.basename(__dirname);
-	let url = require(`${app.get("LIB_PATH")}/prefixer`)(module_name).url;
+	const express = require("express");
+	const path = require("path");
+	const router = express.Router();
+	const module_name = path.basename(__dirname);
+	const url = require(`${app.get("LIB_PATH")}/prefixer`)(module_name).url;
+	
+	const Employees = require("./model/Employee");
 
 	console.log(module_name);
 	router.get(url("/"), function(req, res) {
@@ -26,9 +27,9 @@ module.exports = function(app) {
 				<html>
 					<body>
 						<form name="register" action="${url("/register")}" method="POST">
-							<input type="text" name="surname" placeholder="surname" />
+							<input type="text" name="lastname" placeholder="lastname" />
+							<input type="text" name="firstname" placeholder="firstname" />
 							<input type="text" name="middlename" placeholder="middlename" />
-							<input type="text" name="lastame" placeholder="lastname" />
 							<input type="submit" value="register" />
 						</form>
 					</body>
