@@ -1,5 +1,3 @@
-exports.Validator = require("../../../../lib/oval");
-
 exports.Employee = {
 	emp_id 			: Number,
 	firstname 	: String,
