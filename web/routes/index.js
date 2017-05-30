@@ -12,10 +12,11 @@ const apply = function(app) {
 	*/
 	console.log("configuring routes...");
 	routes.forEach(function(config) {
-		config(app);
+		process.nextTick(function() {
+			app.use(config)
+		});
 	});
 
 }
-
 
 exports.apply = apply;

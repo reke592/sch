@@ -13,5 +13,9 @@ const use = function(config) {
 	config.apply(app);
 }
 
+const settings = function() {
+	return _settings_cache;
+}
+
 exports.start = start;
 exports.use = use;
