@@ -1,9 +1,5 @@
-// set entry-point's base_dir as last-resort for require function
-const path = require("path");
-module.paths.push(path.parse(require.main.filename).dir)
-
-const schema = require("./schema").Employee;
-const validator = require("lib/oval")("Employee", schema);
+const schema 		= require("./schema").Employee;
+const validator = require.main.require("./lib/oval")("Employee", schema);
 
 const register = function(req, res) {
 	// console.log(`register new employee`);

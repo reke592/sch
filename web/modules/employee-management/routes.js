@@ -1,14 +1,9 @@
-// set entry-point's base_dir as last-resort for require function
-const path = require("path");
-module.paths.push(path.parse(require.main.filename).dir)
-
-const express = require("express");
-const validator = require("lib/oval")
-const router = express.Router();
-const module_name = path.basename(__dirname);
+const path 			= require("path");
+const express 	= require("express");
+const router 		= express.Router();
 const Employees = require("./model/Employee");
-const prefix = require("lib/prefixer")(`/${module_name}`).prefix;
-
+const prefix 		= require.main.require("./lib/prefixer")(`/${path.basename(__dirname)}`).prefix;
+const validator = require.main.require("./lib/oval")
 
 router.get(prefix("/"), function(req, res) {
 	console.log("rendering...");
