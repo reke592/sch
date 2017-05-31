@@ -10,7 +10,7 @@ env.dev = {
 	settings : {
 		"DB" : "smpcs",
 		"PORT" : 8000,
-		"STATIC_ASSET_URL_PREFIX" : "/public",
+		"STATIC_ASSET_URL_PREFIX" : "/",
 		"STATIC_DIR" : "public"
 	},
 	plugins : [
