@@ -6,4 +6,4 @@ const routes = require("./web/routes");
 process.env.NODE_ENV = "development";
 server.use(config);
 server.use(routes);
-server.start();
+server.start(8000);
