@@ -2,13 +2,13 @@
   <div>
     <h3>Add new Employee</h3>
     <div>
-      <input class="form-input" type="text" v-model="firstname" placeholder="Last name">
+      <input class="form-input" type="text" v-model="lastname" placeholder="Last name">
     </div>
     <div>
-      <input class="form-input" type="text" v-model="middlename" placeholder="First name">
+      <input class="form-input" type="text" v-model="firstname" placeholder="First name">
     </div>
     <div>
-      <input class="form-input" type="text" v-model="lastname" placeholder="Middlename">
+      <input class="form-input" type="text" v-model="middlename" placeholder="Middlename">
     </div>
     <div>
       <input class="form-input" type="text" v-model="address" placeholder="Address">
@@ -30,7 +30,8 @@
     },
     methods: {
       onSave: function () {
-        this.$store.dispatch('emp/save', this.$data)
+        this.$store.dispatch('emp/save', { body: this.firstname })
+          .then((data) => console.log(data))
       },
       onCancel: function () {
         this.$router.push({ name: 'emp-home' })
