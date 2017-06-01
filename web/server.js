@@ -6,7 +6,7 @@ const start = function(port) {
 	let server_port = port || app.get("PORT");
 	app.use(app.get("STATIC_ASSET_URL_PREFIX"), express.static(app.get("STATIC_DIR")));
 	app.listen(server_port);
-	console.log(`server has started, http://localhost:${server_port}`);
+	console.log(`Express server has started on localhost:${server_port}`);
 }
 
 const use = function(config) {
