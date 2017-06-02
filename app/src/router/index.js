@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import EmployeeManagementRoutes from '@/components/employee-management/routes'
+import EmployeeManagementRoutes from '@/employee-management/routes'
 
 const _ = require('lodash')
 

@@ -9,7 +9,7 @@ const env = {};
 
 env.dev = {
 	settings : {
-		"SERVER": "localhost",
+		"SERVER": "127.0.0.1",
 		"DB" : "smpcs",
 		"MONGO_PORT": 27017,
 		"PORT" : 8000,

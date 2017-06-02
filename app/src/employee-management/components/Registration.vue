@@ -30,11 +30,11 @@
     },
     methods: {
       onSave: function () {
-        this.$store.dispatch('emp/save', { body: this.firstname })
+        this.$store.dispatch('emp/save', this.$data)
           .then((data) => console.log(data))
       },
       onCancel: function () {
-        this.$router.push({ name: 'emp-home' })
+        this.$router.push({ name: 'emp-home' });
       }
     }
   }

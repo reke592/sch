@@ -3,5 +3,5 @@ exports.Employee = {
 	firstname 	: String,
 	middlename 	: String,
 	lastname 		: String,
-	address			: String
+	address			: String,
 }

@@ -1,5 +1,5 @@
-const Home = require('./Home.vue')
-const Registration = require('./Registration.vue')
+const Home = require('./components/Home.vue')
+const Registration = require('./components/Registration.vue')
 
 export default [
   {

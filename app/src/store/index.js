@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import emp from '@/components/employee-management/store'
+import emp from '@/employee-management/store'
 
 Vue.use(Vuex)
 
