@@ -1,1 +1,6 @@
-export const SAVE = 'SAVE_EMP'
+export const SAVE = 'EMP_LIST'
+export const REG_RESPONSE = 'EMP_REG_RESP'
+export const LIST = 'EMP_LIST'
+export const SELECT = 'EMP_SELECT'
+export const CLEAR_SELECTED = 'EMP_CLEAR_SEL'
+export const REMOVE_EMPLOYEE = 'EMP_REMOVE'

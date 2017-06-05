@@ -30,11 +30,21 @@
     },
     methods: {
       onSave: function () {
-        this.$store.dispatch('emp/save', this.$data)
-          .then((data) => console.log(data))
+        this.$store.dispatch('emp/register', this.$data)
+          .then(({data}) => {
+            if(data.result.ok == 1)
+              this.resetInputFields()
+          })
+        .catch(error => alert(error.response.data))
       },
       onCancel: function () {
-        this.$router.push({ name: 'emp-home' });
+        this.$router.push({ name: 'emp-home' })
+      },
+      resetInputFields: function () {
+        this.firstname = ''
+        this.middlename = ''
+        this.lastname = ''
+        this.address = ''
       }
     }
   }

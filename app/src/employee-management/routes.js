@@ -1,5 +1,6 @@
 const Home = require('./components/Home.vue')
 const Registration = require('./components/Registration.vue')
+const Edit = require('./components/Edit.vue')
 
 export default [
   {
@@ -11,5 +12,10 @@ export default [
     name: 'emp-registration',
     path: '/emp/reg',
     component: Registration
+  },
+  {
+    name: 'emp-edit',
+    path: '/emp/edit',
+    component: Edit
   }
 ]

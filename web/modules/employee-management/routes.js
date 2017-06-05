@@ -6,7 +6,6 @@ const prefix 		= require.main.require("./lib/prefixer")(`/${path.basename(__dirn
 const validator = require.main.require("./lib/oval")
 
 router.get(prefix("/"), function(req, res) {
-	console.log("rendering...");
 	let template = `
 			<html>
 				<body>
@@ -35,6 +34,8 @@ router.get(prefix("/register"), function(req, res) {
 	res.send(template);
 });
 
+router.get(prefix("/ajax/list"), Employees.list)
 router.post(prefix("/register"), Employees.register);
+router.post(prefix("/remove"), Employees.remove)
 
 module.exports = router;

@@ -1,28 +1,68 @@
 import {
-  save
+  register,
+  list,
+  select,
+  clearSelected,
+  remove
 } from './actions'
 
 import {
-  SAVE
+  REG_RESPONSE,
+  LIST,
+  SELECT,
+  CLEAR_SELECTED,
+  REMOVE_EMPLOYEE
 } from './mutation-types'
 
 const state = {
-  submitted: {}
+  registration: null,
+  deleted: null,
+  list: [],
+  refresh: true,
+  selected: null
 }
 
 const actions = {
-  save
+  register,
+  list,
+  select,
+  clearSelected,
+  remove
 }
 
 const mutations = {
-  [SAVE] (state, payload) {
-    state.submitted = payload
+  [REG_RESPONSE] (state, response) {
+    state.registration = response
+    state.refresh = true
+  },
+  [LIST] (state, response) {
+    state.list = response
+    state.refresh = false
+  },
+  [SELECT] (state, payload) {
+    state.selected = payload
+  },
+  [CLEAR_SELECTED] (state) {
+    state.selected = null
+  },
+  [REMOVE_EMPLOYEE] (state, response) {
+    state.deleted = response
+    state.refresh = true
   }
 }
 
 const getters = {
-  regData: (state) => {
-    return state.submitted
+  regResponse: (state) => {
+    return state.registration
+  },
+  list: (state) => {
+    return state.list
+  },
+  selected: (state) => {
+    let clone = {}
+    for(var key in state.selected)
+      clone[key] = state.selected[key]
+    return clone
   }
 }
 
