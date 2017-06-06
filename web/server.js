@@ -1,6 +1,12 @@
 var express = require("express");
-
+var session = require("express-session")
 const app = express();
+
+app.use(session({
+	secret: '4lt3rk3y',
+	resave: false,
+	saveUninitialized: true
+}))
 
 const start = function(port) {
 	let server_port = port || app.get("PORT");
