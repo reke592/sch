@@ -7,8 +7,17 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+const components = require('./app-components')
+const options = {
+  baseURL: 'http://localhost:8000'
+}
+
+window.a = axios
+Vue.use(VueAxios, axios.create(options))
+Vue.use(components)
+
 Vue.config.productionTip = false
-Vue.use(VueAxios, axios)
+// Vue.axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */
 window.test = new Vue({

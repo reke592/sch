@@ -6,16 +6,19 @@ export default [
   {
     name: 'emp-home',
     path: '/emp',
-    component: Home
+    component: Home,
+    meta: { requiresAuth: true }
   },
   {
     name: 'emp-registration',
     path: '/emp/reg',
-    component: Registration
+    component: Registration,
+    meta: { requiresAuth: true }
   },
   {
     name: 'emp-edit',
     path: '/emp/edit',
-    component: Edit
+    component: Edit,
+    meta: { requiresAuth: true }
   }
 ]

@@ -4,7 +4,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger 	= require.main.require("./web/middleware/logger");
-const cors = require.main.require("./web/middleware/cors");
+const CORS = require.main.require("./web/middleware/cors");
 const env = {};
 
 env.dev = {
@@ -19,7 +19,7 @@ env.dev = {
 	plugins : [
 		bodyParser.json(),
 		bodyParser.urlencoded({ extended : true }),
-		cors
+		CORS
 	]
 };
 

@@ -5,3 +5,8 @@ exports.Employee = {
 	lastname 		: String,
 	address			: String,
 }
+
+exports.User = {
+  username: String,
+  password: String
+}

@@ -2,6 +2,7 @@
   <div>
     <h3>Employee Management</h3>
     <button v-on:click="onAddNew">Add New</button>
+    <button v-on:click="onGotoMain">Main</button>
     <div>
       <table border="1px solid gray" cellspacing="0" cellpadding="10px">
         <thead>
@@ -50,6 +51,9 @@ export default {
         .then(data => {
           this.$router.push({ name: 'emp-edit' })
         })
+    },
+    onGotoMain: function () {
+      this.$router.push({ name: 'main' })
     }
   }
 }

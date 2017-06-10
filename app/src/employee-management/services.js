@@ -1,5 +1,5 @@
 import Vue from 'vue'
-const url = 'http://localhost:8000/employee-management'
+const url = '/employee-management'
 
 function register (request) {
   return Vue.axios.post(`${url}/register`, request)
