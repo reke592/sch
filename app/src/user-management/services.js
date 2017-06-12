@@ -1,5 +1,5 @@
 import Vue from 'vue'
-const url = '/user-management'
+const url = 'api/user-management'
 
 function login (request) {
   return Vue.axios.post(`${url}/login`, request)

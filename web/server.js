@@ -2,11 +2,9 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const env = require.main.require("./config");
-const CORS = require("./middleware/cors");
 var session = require.main.require("./config/session");
 var app = express();
 
-app.use(CORS);
 env.apply(app);
 app.use(cookieParser());
 app.use(session);

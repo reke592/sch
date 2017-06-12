@@ -6,7 +6,6 @@ const prefix 		= require.main.require("./lib/prefixer")(`/employee-management`).
 const validator = require.main.require("./lib/oval")
 const requireAuth = require.main.require("./web/middleware/auth")
 
-console.log(requireAuth)
 // router.get(prefix("/"), requireAuth, function(req, res) {
 // 	let template = `
 // 			<html>
