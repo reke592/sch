@@ -1,0 +1,12 @@
+follow the patterns
+
+*Back-end
+Model				- DB Transactions
+Controller	- use Model
+Router			- use Controller
+
+*Front-end
+Store.actions		- use Services
+Components			- use dispatch actions
+
+-- create a much better validator

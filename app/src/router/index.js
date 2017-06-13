@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import {auth} from './guard'
 import Hello from '@/components/Hello'
 import EmployeeManagementRoutes from '@/employee-management/routes'
+import UserManagementRoutes from '@/user-management/routes'
 
 const _ = require('lodash')
 
@@ -15,7 +16,8 @@ const routes = _.flatMap([
     component: Hello,
     meta: { requiresAuth: true }
   },
-  EmployeeManagementRoutes
+  EmployeeManagementRoutes,
+  UserManagementRoutes
 ])
 
 const router = new Router({routes})

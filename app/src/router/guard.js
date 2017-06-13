@@ -12,7 +12,8 @@ const defaultPage = 'emp-home'
 * before we check the auth user.
 */
 function _redirect(auth_user, to, from, next) {
-  if(!auth_user) {
+  console.log(to.name)
+  if(!auth_user && to.matched.some(record => record.meta.requiresAuth)) {
     console.log('redirect to login..');
     if(to.name != loginPage)
       next({ name: loginPage });
@@ -29,16 +30,6 @@ function _redirect(auth_user, to, from, next) {
 }
 
 export const auth = function (from, to, next) {
-  /**
-  * ON window.location.reload() :
-  *   to.name IS null
-  *   meta.requiresAuth IS undefined
-  */
-  if(to.matched.some(record => record.meta.requiresAuth) || to.name == null) {
-    let user = store.getters['user/currentUser']
-    _redirect(user, from, to, next)
-  }
-  else {
-    next()
-  }
+  let user = store.getters['user/currentUser']
+  _redirect(user, from, to, next)
 }

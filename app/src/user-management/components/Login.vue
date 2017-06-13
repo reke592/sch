@@ -1,9 +1,17 @@
 <template>
   <div class="login">
-    <div id="auth_form1">
-      <input type="text" name="user" v-model="user" placeholder="username">
-      <input type="password" name="passwd" v-model="passwd" placeholder="password">
+    <div id="auth">
+      <div v-if="error">
+        <span class="error">{{ error }}</span>
+      </div>
+      <div>
+        <input type="text" name="user" v-model="user" placeholder="username">
+      </div>
+      <div>
+        <input type="password" name="pass" v-model="pass" placeholder="password">
+      </div>
       <button v-on:click="onLogin">Login</button>
+      <router-link to='/user/signup'>Sign Up</router-link>
     </div>
   </div>
 </template>
@@ -13,7 +21,8 @@
     data: function () {
       return {
         user: '',
-        passwd: ''
+        pass: '',
+        error: ''
       }
     },
     methods: {
@@ -23,7 +32,17 @@
           .then(() => {
             this.$router.push({ name: 'emp-home' })
           })
+          .catch((error) => {
+            this.error = error
+          })
       }
     }
   }
 </script>
+
+<style scoped>
+  .error {
+    color: red;
+    font-size: 9pt;
+  }
+</style>
